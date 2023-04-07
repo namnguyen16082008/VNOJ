@@ -3,11 +3,11 @@
 
 using namespace std;
 
-ll x1,y1,x2,y2;
+ll x,y,z,t;
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cin>>x1>>y1>>x2>>y2;
-    cout<<abs(x1-x2)*abs(y1-y2);
+    cin>>x>>y>>z>>t;
+    cout<<abs(x-z)*abs(y-t);
 }
 
