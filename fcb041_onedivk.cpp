@@ -15,4 +15,5 @@ int main(){
             return 0;
         }
     }
+    cout<<-1;
 }
