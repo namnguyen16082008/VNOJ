@@ -11,9 +11,7 @@ int main(){
     cin>>n;
     for (ll i=1;i<=n;i++){
         cin>>a[i];
-        if (a[i-1]%2){
-            ans+=a[i]>0;
-        }
+        if (a[i-1]%2) ans+=a[i]>0;
         a[i]-=a[i-1]%2;
         ans+=a[i]/2;
     }
