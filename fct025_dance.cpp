@@ -30,8 +30,8 @@ int main(){
         }
     }
     b[0]=-inf;
-	sort(a+1,a+d1+1);
-	sort(b+1,b+d2+1);
+    sort(a+1,a+d1+1);
+    sort(b+1,b+d2+1);
     for (ll i=1;i<=d1;i++) ans+=Find(a[i])-Find(a[i]-k-1);
     cout<<ans;
 }
