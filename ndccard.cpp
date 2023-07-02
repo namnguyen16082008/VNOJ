@@ -4,7 +4,7 @@
 using namespace std;
 
 const ll N=10000;
-ll n,m,s,ans=0,a[N+5];
+ll n,m,s,l,r,ans=0,a[N+5];
 ll Find(ll l, ll r, ll x){
     while (l<r){
         ll md=(l+r)/2;
@@ -19,22 +19,14 @@ int main(){
     cin>>n>>m;
     for (ll i=1;i<=n;i++) cin>>a[i];
     sort(a+1,a+n+1);
-    for (ll i=1;i<n-1;i++){
-        if (a[i]+a[i+1]+a[i+2]>m) break;
-        for (ll j=i+1;j<n;j++){
-            if (a[i]+a[j]+a[j+1]>m) break;
-            if (a[i]+a[j]+a[n]<=m){
-                ans=max(ans,a[i]+a[j]+a[n]);
-                goto Next;
-            }
-            s=Find(j+1,n,m-a[i]-a[j]);
-            ans=max(ans,a[i]+a[j]+a[s]);
-            Next:;
-            if (ans==m){
-                cout<<ans;
-                return 0;
-            }
-        }
+    l=1,r=n;
+    while (l<r){
+        while (a[l]+a[r]>=m) r--;
+        s=Find(1,n,m-a[l]-a[r]);
+        s-=s==r;
+        s-=s==l;
+        ans=max(ans,(a[l]+a[r]+a[s])*(s>0));
+        l++;
     }
     cout<<ans;
 }
